@@ -6,7 +6,7 @@ public class CameraFollower : MonoBehaviour
 {
     public Transform currentTarget;
     [SerializeField]
-    private float smoothing = 0.9f;
+    private float smoothing = 0.1f;
 
     void Update()
     {
@@ -14,7 +14,8 @@ public class CameraFollower : MonoBehaviour
         {
             Vector3 targetPosition = currentTarget.position;
             Vector3 currentPosition = transform.position;
-            Vector3.Lerp(currentPosition, targetPosition, 0.9f);
+
+            transform.position = Vector3.Lerp(currentPosition, targetPosition, smoothing) + new Vector3(0f,0f,-10f);
         }
     }
 }
