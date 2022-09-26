@@ -10,9 +10,11 @@ public class CameraFollower : MonoBehaviour
 
     void Update()
     {
-        Vector3 targetPosition = currentTarget.position;
-        Vector3 currentPosition = transform.position;
-        Vector3.Lerp(currentPosition, targetPosition, 0.9f);
-
+        if (currentTarget != null)
+        {
+            Vector3 targetPosition = currentTarget.position;
+            Vector3 currentPosition = transform.position;
+            Vector3.Lerp(currentPosition, targetPosition, 0.9f);
+        }
     }
 }

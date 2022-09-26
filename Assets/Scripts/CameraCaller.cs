@@ -6,6 +6,7 @@ public class CameraCaller : MonoBehaviour
 {
     public Transform camera;
     CameraFollower follower;
+    GameObject lastCollision;
 
     private void Start()
     {
@@ -13,6 +14,15 @@ public class CameraCaller : MonoBehaviour
     }
     void CallCamera()
     {
-        
+        follower.currentTarget = transform;
+
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject != lastCollision)
+        {
+            CallCamera();
+            lastCollision = collision.gameObject;
+        }
     }
 }
