@@ -6,7 +6,7 @@ public class CameraFollower : MonoBehaviour
 {
     public Transform currentTarget;
     [SerializeField]
-    private float smoothing = 0.2f;
+    private float smoothing = 0.45f;
 
     void Update()
     {
